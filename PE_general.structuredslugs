@@ -1,0 +1,31 @@
+[INPUT]
+evader:0...8
+
+[OUTPUT]
+pursuer:0...8
+
+[ENV_TRANS]
+evader = 0 -> evader'=0 || evader'=1 || evader'=6
+evader = 1 -> evader'=1 || evader'=0 || evader'=2
+evader = 2 -> evader'=2 || evader'=1 || evader'=3
+evader = 3 -> evader'=3 || evader'=2 || evader'=4 || evader'=5 || evader'=8
+evader = 4 -> evader'=4 || evader'=3
+evader = 5 -> evader'=5 || evader'=3 || evader'=6
+evader = 6 -> evader'=6 || evader'=0 || evader'=5 || evader'=7
+evader = 7 -> evader'=6 || evader'=7
+evader = 8 -> evader'=8 || evader'=3
+
+[SYS_TRANS]
+pursuer = 0 -> pursuer'=0 || pursuer'=1 || pursuer'=2 || pursuer'=5 || pursuer'=6 || pursuer'=7
+pursuer = 1 -> pursuer'=0 || pursuer'=1 || pursuer'=2 || pursuer'=3 || pursuer'=6
+pursuer = 2 -> pursuer'=0 || pursuer'=1 || pursuer'=2 || pursuer'=3 || pursuer'=4 || pursuer'=5 || pursuer'=8
+pursuer = 3 -> pursuer'=1 || pursuer'=2 || pursuer'=3 || pursuer'=4 || pursuer'=5 || pursuer'=8 || pursuer'=6
+pursuer = 4 -> pursuer'=2 || pursuer'=3 || pursuer'=4 || pursuer'=5 || pursuer'=8
+pursuer = 5 -> pursuer'=0 || pursuer'=2 || pursuer'=3 || pursuer'=4 || pursuer'=5 || pursuer'=8 || pursuer'=6 || pursuer'=7
+pursuer = 6 -> pursuer'=0 || pursuer'=1 || pursuer'=3 || pursuer'=5 || pursuer'=6 || pursuer'=7
+pursuer = 7 -> pursuer'=0 || pursuer'=5 || pursuer'=6 || pursuer'=7
+pursuer = 8 -> pursuer'=2 || pursuer'=3 || pursuer'=4 || pursuer'=5 || pursuer'=8
+
+[SYS_LIVENESS]
+pursuer' = evader
+

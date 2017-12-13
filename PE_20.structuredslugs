@@ -1,0 +1,53 @@
+[INPUT]
+evader:0...19
+
+[OUTPUT]
+pursuer:0...19
+
+[ENV_TRANS]
+evader = 0 -> evader'=0 || evader'=1 || evader'=7 || evader'=19 
+evader = 1 -> evader'=0 || evader'=1 || evader'=2 || evader'=3 
+evader = 2 -> evader'=1 || evader'=2 || evader'=3 || evader'=4 
+evader = 3 -> evader'=1 || evader'=2 || evader'=3 || evader'=4 
+evader = 4 -> evader'=2 || evader'=3 || evader'=4 || evader'=5 
+evader = 5 -> evader'=4 || evader'=5 || evader'=6 || evader'=7 || evader'=18 
+evader = 6 -> evader'=5 || evader'=6 || evader'=7 
+evader = 7 -> evader'=0 || evader'=5 || evader'=6 || evader'=7 || evader'=8 || evader'=9 
+evader = 8 -> evader'=7 || evader'=8 || evader'=9 
+evader = 9 -> evader'=7 || evader'=8 || evader'=9 || evader'=10 
+evader = 10 -> evader'=9 || evader'=10 || evader'=11 
+evader = 11 -> evader'=10 || evader'=11 || evader'=12 || evader'=13 
+evader = 12 -> evader'=11 || evader'=12 
+evader = 13 -> evader'=11 || evader'=13 || evader'=14 
+evader = 14 -> evader'=13 || evader'=14 || evader'=15 || evader'=16 
+evader = 15 -> evader'=14 || evader'=15 
+evader = 16 -> evader'=14 || evader'=16 || evader'=17 
+evader = 17 -> evader'=16 || evader'=17 || evader'=18 
+evader = 18 -> evader'=5 || evader'=17 || evader'=18 || evader'=19 
+evader = 19 -> evader'=0 || evader'=18 || evader'=19 
+
+[SYS_TRANS]
+pursuer = 0 -> pursuer'=0 || pursuer'=1 || pursuer'=2 || pursuer'=3 || pursuer'=5 || pursuer'=6 || pursuer'=7 || pursuer'=8 || pursuer'=9 || pursuer'=18 || pursuer'=19 
+pursuer = 1 -> pursuer'=0 || pursuer'=1 || pursuer'=2 || pursuer'=3 || pursuer'=4 || pursuer'=7 || pursuer'=19 
+pursuer = 2 -> pursuer'=0 || pursuer'=1 || pursuer'=2 || pursuer'=3 || pursuer'=4 || pursuer'=5 
+pursuer = 3 -> pursuer'=0 || pursuer'=1 || pursuer'=2 || pursuer'=3 || pursuer'=4 || pursuer'=5 
+pursuer = 4 -> pursuer'=1 || pursuer'=2 || pursuer'=3 || pursuer'=4 || pursuer'=5 || pursuer'=6 || pursuer'=7 || pursuer'=18 
+pursuer = 5 -> pursuer'=0 || pursuer'=2 || pursuer'=3 || pursuer'=4 || pursuer'=5 || pursuer'=6 || pursuer'=7 || pursuer'=8 || pursuer'=9 || pursuer'=17 || pursuer'=18 || pursuer'=19 
+pursuer = 6 -> pursuer'=0 || pursuer'=4 || pursuer'=5 || pursuer'=6 || pursuer'=7 || pursuer'=8 || pursuer'=9 || pursuer'=18 
+pursuer = 7 -> pursuer'=0 || pursuer'=1 || pursuer'=4 || pursuer'=5 || pursuer'=6 || pursuer'=7 || pursuer'=8 || pursuer'=9 || pursuer'=10 || pursuer'=18 || pursuer'=19 
+pursuer = 8 -> pursuer'=0 || pursuer'=5 || pursuer'=6 || pursuer'=7 || pursuer'=8 || pursuer'=9 || pursuer'=10 
+pursuer = 9 -> pursuer'=0 || pursuer'=5 || pursuer'=6 || pursuer'=7 || pursuer'=8 || pursuer'=9 || pursuer'=10 || pursuer'=11 
+pursuer = 10 -> pursuer'=7 || pursuer'=8 || pursuer'=9 || pursuer'=10 || pursuer'=11 || pursuer'=12 || pursuer'=13 
+pursuer = 11 -> pursuer'=9 || pursuer'=10 || pursuer'=11 || pursuer'=12 || pursuer'=13 || pursuer'=14 
+pursuer = 12 -> pursuer'=10 || pursuer'=11 || pursuer'=12 || pursuer'=13 
+pursuer = 13 -> pursuer'=10 || pursuer'=11 || pursuer'=12 || pursuer'=13 || pursuer'=14 || pursuer'=15 || pursuer'=16 
+pursuer = 14 -> pursuer'=11 || pursuer'=13 || pursuer'=14 || pursuer'=15 || pursuer'=16 || pursuer'=17 
+pursuer = 15 -> pursuer'=13 || pursuer'=14 || pursuer'=15 || pursuer'=16 
+pursuer = 16 -> pursuer'=13 || pursuer'=14 || pursuer'=15 || pursuer'=16 || pursuer'=17 || pursuer'=18 
+pursuer = 17 -> pursuer'=5 || pursuer'=14 || pursuer'=16 || pursuer'=17 || pursuer'=18 || pursuer'=19 
+pursuer = 18 -> pursuer'=0 || pursuer'=4 || pursuer'=5 || pursuer'=6 || pursuer'=7 || pursuer'=16 || pursuer'=17 || pursuer'=18 || pursuer'=19 
+pursuer = 19 -> pursuer'=0 || pursuer'=1 || pursuer'=5 || pursuer'=7 || pursuer'=17 || pursuer'=18 || pursuer'=19 
+
+[SYS_LIVENESS]
+pursuer' = evader
+

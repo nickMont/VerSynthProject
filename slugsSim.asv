@@ -1,0 +1,39 @@
+clear;clc;
+
+slugsParser;
+initializeMap;
+
+purPosition=5;
+evaPosition=1;
+
+evaderIsIntelligent=0;  %intelligent if ==1
+
+contvar=true;
+timeStepsToVictory=0;
+while contvar
+    timeStepsToVictory=timeStepsToVictory+1;
+    purInd=find([purPos{:}]==purPosition);
+    evaInd=find([evaPos{:}]==evaPosition);
+    stateIndex=find(purInd==[evaInd(:)]);
+    if ~isempty(stateIndex)
+        successorInd=randsample(successors{stateIndex},1);
+        purPosition=purPos{successorInd};
+    else
+        purPosition=purPosition;
+    end
+    
+    if evaderIsIntelligent==0
+        evaVec=zeros(N,1); evaVec(evaPosition)=1;
+        evaPossibleLoc=Ae*evaVec;
+        evaPossibleInd=find(evaPossibleLoc==1);
+        evaPosition=randsample(evaPossibleInd,1);
+    else
+        
+    end
+    
+    if minDistBetweenNodes(vn,purPosition,evaPosition)<=1
+        contvar=false;
+    end
+end
+timeStepsToVictory
+

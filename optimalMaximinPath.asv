@@ -1,4 +1,4 @@
-function [pathVec,distmat,inde] = optimalMaximinPath(vn,Apur,Aeva,nPur,nEva,dk_max)
+function pathVec = optimalMaximinPath(vn,Apur,Aeva,nPur,nEva,dk_max)
 %best strategy FOR EVADER
 %value is considered val=dist(nPur,nEva)
 %returns the path such that max_pur(min_eva(val)) for dk_max time steps
@@ -24,8 +24,8 @@ if dk_max==1
     bestpath=inde(ind);
 end
 if dk_max>=1
-    vp2=Apur^dk_max*vp;
-    ve2=Aeva^dk_max*ve;
+    vp2=Apur^2*vp;
+    ve2=Aeva^2*ve;
     indp=find(vp2>=1);
     inde=find(ve2>=1);
     distmat=zeros(length(indp),length(inde));

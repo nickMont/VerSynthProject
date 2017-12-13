@@ -1,14 +1,14 @@
-clear;clc;
+%clear;clc;
 %tested for:
 % "variables": ["evader@0.0.8", "evader@1", "evader@2", "evader@3", "pursuer@0.0.8", "pursuer@1", "pursuer@2", "pursuer@3"],
 %NOTE: CANNOT HAVE WHITESPACE OR TRAILING WHITESPACE
-fname='PE_2_08.txt';
+fname='PE_20_readready.txt';
 fid=fopen(fname,'r');
 tline=fgetl(fid);
 n=0; j=0;
 cont=true;
 stateno={};
-N=4; %length of binary encode in map
+N=5; %length of binary encode in map
 evaPos={}; purPos={};
 successors={};
 nOffset=1; %offset difference between 0 (entry in SLUGS) and lowest numerical value in map
@@ -52,6 +52,5 @@ while cont
 end
 fclose(fid);
 
-initializeMap;
 
 

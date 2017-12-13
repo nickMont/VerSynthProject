@@ -1,5 +1,5 @@
-function [pathVec,distmat,inde] = optimalMaximinPath(vn,Apur,Aeva,nPur,nEva,dk_max)
-%best strategy FOR EVADER
+function [pathVec,distmat,indp] = optimalMinimaxPath(vn,Apur,Aeva,nPur,nEva,dk_max)
+%best strategy FOR PURSUER
 %value is considered val=dist(nPur,nEva)
 %returns the path such that max_pur(min_eva(val)) for dk_max time steps
 vp=zeros(length(vn),1); vp(nPur)=1;
@@ -18,12 +18,10 @@ if dk_max==1
             distmat(i1,i2)=minDistBetweenNodes(vn,indp(i1),inde(i2));
         end
     end
-%     distmat
-%     min(distmat)
-    [~,ind]=max(min(distmat));
-    bestpath=inde(ind);
-end
-if dk_max>=1
+    distmat;
+    [~,ind]=min(max(distmat'));
+    bestpath=indp(ind);
+else %if dk_max>=2
     vp2=Apur^dk_max*vp;
     ve2=Aeva^dk_max*ve;
     indp=find(vp2>=1);
@@ -34,12 +32,9 @@ if dk_max>=1
             distmat(i1,i2)=minDistBetweenNodes(vn,indp(i1),inde(i2));
         end
     end
-%     distmat
-%     min(distmat)
-    [~,ind]=max(min(distmat));
-    bestpath=inde(ind);
+    [~,ind]=min(max(distmat'));
+    bestpath=indp(ind);
 end
-
 
 pathVec=bestpath;
 
